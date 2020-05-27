@@ -7,21 +7,22 @@ from pyspark.sql.types import StringType, IntegerType, ArrayType, DataType, Date
 from pyspark.sql.functions import monotonically_increasing_id
 from pyspark.sql.functions import rand, randn, round, expr
 import random
+from python.ColumnFactory import *
+
 
 class DataGenerator:
     def __init__(self, spark):
         self.spark = spark
 
-     
+    def checkKey(self, key):
+        try:
+            if key:
+                return key
+        except:
+            return None
+
     def generateAndWriteDataFromSchema(self, schema, out):
         print(schema)
-
-        # def toInt(s):
-        #     if isinstance(s, str) == True:
-        #         st = [str(ord(i)) for i in s]
-        #         return (int(''.join(st)))
-        #     else:
-        #         return int(s)
 
         def randdates(date1, date2):
             try:
@@ -38,50 +39,74 @@ class DataGenerator:
 
         for table in schema['tables']:
             print("--------------" + table['name'] + "--------------------")
-        
+
             df = self.spark.range(table['rows']).select(col("id").cast("double"))
             df = df.repartition(1)
-            # colsInt = udf(lambda z: toInt(z), IntegerType())
-            # self.spark.udf.register("colsInt", colsInt)
 
             randdate = udf(lambda x, y: randdates(x, y), StringType())
             self.spark.udf.register("randdate", randdate)
-
-            #df.withColumn('semployee',colsInt('id')).show()
+            colFactory = ColumnTypeFactory(self.spark)
 
             for column in table['columns']:
-                if column['column_type'] == 'Sequential':
-                    df = df.withColumn(column['name'], (column['start'] + (column['step'] * monotonically_increasing_id())))
-                elif column['column_type'] == 'Random' and column['data_type'] == 'Date':
-                    df = df.withColumn(column['name'],
-                                       randdate(lit(column['min']), lit(column['max'])))
-                elif column['column_type'] == 'Random' and column['data_type'] != 'Date':
-                    try:
-                        df = df.withColumn(column['name'],
-                                           round(rand() * (column['max'] - column['min']) + column['min'],
-                                                 column['decimal_places']))
-                    except:
-                        df = df.withColumn(column['name'], round(rand() * (column['max'] - column['min']) + column['min'], 0))
-                elif column['column_type'] == 'Fixed':
-                    df = df.withColumn(column['name'],
-                                       lit(column['value']))
-                elif column['column_type'] == 'Expression':
-                    df = df.withColumn(column['name'],
-                                       expr(column['expression']))
+                start = 0;
+                min = 0;
+                max = 0;
+                step = 0;
+                decimalPlaces = 0;
+                expression = None;
+                dataType = None
+                value = None
+                try:
+                    start = column['start']
+                    step = column['step']
+                except:
+                    pass
+                try:
+                    min = column['min']
+                    max = column['max']
+                except:
+                    pass
+                try:
+                    dataType = column['data_type']
+                except:
+                    pass
+                try:
+                    decimalPlaces = column['decimal_places']
+                except:
+                    pass
+                try:
+                    expression = column['expression']
+                except:
+                    pass
+                try:
+                    value = column['value']
+                except:
+                    pass
+
+                df = colFactory.createColumn(column['column_type'], df, start=start, name=column['name'],
+                                             dataType=dataType,
+                                             min=min, max=max, expression=expression,
+                                             decimalPlaces=decimalPlaces,
+                                             step=step, value=value)
+
             df = df.drop('id')
             df.show()
-            df.write.format('csv').mode('OverWrite').save(out + '/' + table['name'])
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+            df.write.format('parquet').mode('OverWrite').save(out + '/' + table['name'])
+# if column['column_type'] == 'Sequential':
+#    df = df.withColumn(column['name'], (column['start'] + (column['step'] * monotonically_increasing_id())))
+# if column['column_type'] == 'Random' and column['data_type'] == 'Date':
+#     df = df.withColumn(column['name'],
+#                        randdate(lit(column['min']), lit(column['max'])))
+# elif column['column_type'] == 'Random' and column['data_type'] != 'Date':
+#     try:
+#         df = df.withColumn(column['name'],
+#                            round(rand() * (column['max'] - column['min']) + column['min'],
+#                                  column['decimal_places']))
+#     except:
+#         df = df.withColumn(column['name'], round(rand() * (column['max'] - column['min']) + column['min'], 0))
+# elif column['column_type'] == 'Fixed':
+#     df = df.withColumn(column['name'],
+#                        lit(column['value']))
+# elif column['column_type'] == 'Expression':
+#     df = df.withColumn(column['name'],
+#                        expr(column['expression']))
