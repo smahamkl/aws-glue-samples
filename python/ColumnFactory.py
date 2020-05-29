@@ -1,10 +1,11 @@
 from abc import ABCMeta, abstractmethod
 from pyspark.sql.functions import udf, col, lit
-from pyspark.sql.types import StringType, IntegerType, ArrayType, DataType, DateType, DoubleType
+from pyspark.sql.types import StringType, IntegerType, ArrayType, DataType, DateType, DoubleType, TimestampType
 from pyspark.sql.functions import monotonically_increasing_id
 from pyspark.sql.functions import rand, randn, round, expr
+from random import randint
 import random
-import datetime
+from datetime import datetime, timedelta
 
 
 class ColumnType(metaclass=ABCMeta):
@@ -16,6 +17,16 @@ class ColumnType(metaclass=ABCMeta):
     def create(self, df, **kwargs):
         pass
 
+    def castColumn(self, df, colName, dataType):
+        if dataType == "Int":
+            df = df.withColumn(colName, df[colName].cast(IntegerType()))
+        elif dataType == "Float":
+            df = df.withColumn(colName, df[colName].cast(DoubleType()))
+        else:
+            df = df.withColumn(colName, df[colName].cast(StringType()))
+
+        return df
+
 
 class Sequential(ColumnType):
     def __init__(self, spark):
@@ -24,8 +35,7 @@ class Sequential(ColumnType):
     def create(self, df, **kwargs):
         df = df.withColumn(kwargs.get("name"),
                            (kwargs.get("start") + (kwargs.get("step") * monotonically_increasing_id())))
-        if kwargs.get("dataType") == "Int":
-            df = df.withColumn(kwargs.get("name"), df[kwargs.get("name")].cast(IntegerType()))
+
 
         return df
 
@@ -37,8 +47,6 @@ class Fixed(ColumnType):
     def create(self, df, **kwargs):
         df = df.withColumn(kwargs.get("name"),
                            lit(kwargs.get("value")))
-        if kwargs.get("dataType") == "Int":
-            df = df.withColumn(kwargs.get("name"), df[kwargs.get("name")].cast(IntegerType()))
         return df
 
 
@@ -48,15 +56,20 @@ class Random(ColumnType):
 
     def create(self, df, **kwargs):
         def randdates(date1, date2):
+            format1 = '%Y-%m-%d %H:%M:%S.%f'
+            stime = datetime.strptime(str(date1), format1)
+            etime = datetime.strptime(str(date2), format1)
+
+            dt = random.random() * (etime - stime) + stime
+            return str(dt)
+
+        def randitemfromlist(listStr):
             try:
-                start_date = datetime.datetime.strptime(str(date1), '%Y-%m-%d')
-                end_date = datetime.datetime.strptime(str(date2), '%Y-%m-%d')
-
-                time_between_dates = end_date.date() - start_date.date()
-                days_between_dates = time_between_dates.days
-
-                random_number_of_days = random.randrange(days_between_dates)
-                return str(start_date.date() + datetime.timedelta(days=random_number_of_days))
+                if listStr == "" or listStr is None:
+                    return ""
+                my_list = listStr.split(",")
+                index = randint(0, len(my_list) - 1)
+                return str(my_list[index])
             except:
                 return ""
 
@@ -64,7 +77,12 @@ class Random(ColumnType):
             randdate = udf(lambda x, y: randdates(x, y), StringType())
             self.spark.udf.register("randdate", randdate)
             df = df.withColumn(kwargs.get("name"), randdate(lit(kwargs.get("min")), lit(kwargs.get("max"))))
-        elif kwargs.get("dataType") != 'Date':
+            #df = df.withColumn(kwargs.get("name"), df[kwargs.get("name")].cast(TimestampType()))
+        elif kwargs.get("randomValuesSr") is not None:
+            randvalue = udf(lambda x: randitemfromlist(x), StringType())
+            self.spark.udf.register("randvalue", randvalue)
+            df = df.withColumn(kwargs.get("name"), randvalue(lit(kwargs.get("randomValuesSr"))))
+        else:
             try:
                 df = df.withColumn(kwargs.get("name"),
                                    round(rand() * (kwargs.get('max') - kwargs.get('min')) + kwargs.get('min'),
@@ -73,8 +91,6 @@ class Random(ColumnType):
                 df = df.withColumn(kwargs.get("name"),
                                    round(rand() * (kwargs.get('max') - kwargs.get('min')) + kwargs.get('min'),
                                          0))
-        if kwargs.get("dataType") == "Int":
-            df = df.withColumn(kwargs.get("name"), df[kwargs.get("name")].cast(IntegerType()))
         return df
 
 
@@ -85,8 +101,6 @@ class Expression(ColumnType):
     def create(self, df, **kwargs):
         df = df.withColumn(kwargs.get('name'),
                            expr(kwargs.get('expression')))
-        if kwargs.get("dataType") == "Int":
-            df = df.withColumn(kwargs.get("name"), df[kwargs.get("name")].cast(IntegerType()))
         return df
 
 
@@ -96,8 +110,4 @@ class ColumnTypeFactory:
 
     def createColumn(self, columnType, df, **kwargs):
         obj = eval(columnType)(self.spark)
-        return obj.create(df, **kwargs)
-# if __name__ == "__main__":
-#     ColumnTypeFactory.createColumn(columnType="Expression", name="exprs-col", expression="a/b")
-#     ColumnTypeFactory.createColumn(columnType="Random", name="exprs-col", dataType="Int", min=0, max=100000,
-#                                    decimalPlaces=2)
+        return obj.castColumn(obj.create(df, **kwargs), kwargs.get('name'), kwargs.get('dataType'))

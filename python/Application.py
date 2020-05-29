@@ -1,3 +1,4 @@
+from datetime import datetime
 import sys
 import os
 from operator import add
@@ -6,15 +7,16 @@ import yaml
 import functools
 from pyspark.sql import SparkSession
 from python.DataGen import DataGenerator
+import random
+from datetime import datetime, timedelta
 
 os.environ['PYSPARK_PYTHON'] = '/usr/bin/python3.7'
 os.environ['SPARK_HOME'] = '/home/sivam/spark-2.4.3-bin-spark-2.4.3-bin-hadoop2.8'
 
-spark = SparkSession\
-    .builder\
-    .appName("Data-Faker")\
+spark = SparkSession \
+    .builder \
+    .appName("Data-Faker") \
     .getOrCreate()
-    
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--yaml", help="YAML file location",

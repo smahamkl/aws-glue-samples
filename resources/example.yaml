@@ -1,6 +1,6 @@
 tables:
 - name: card_dim_c
-  rows: 10000000
+  rows: 1000
   columns:
   - name: card_id
     data_type: Int
@@ -31,7 +31,7 @@ tables:
     expression: concat('isba', hshd_code)
 
 - name: transaction_item_fct_data
-  rows: 100
+  rows: 10000
   columns:
   - name: card_id
     data_type: Int
@@ -71,13 +71,13 @@ tables:
   - name: date_id
     data_type: Date
     column_type: Random
-    min: 2017-01-01
-    max: 2018-01-01
+    min: 2017-01-01 21:16:30.924000
+    max: 2018-01-01 20:10:10.924000
   partitions:
     - date_id
 
 - name: card_dim_c_suppressions
-  rows: 10
+  rows: 100
   columns:
   - name: identifier
     data_type: Int
@@ -88,3 +88,7 @@ tables:
     data_type: String
     column_type: Fixed
     value: card_id
+  - name: item_cd
+    data_type: Int
+    column_type: Random
+    values: 1,0,2,
