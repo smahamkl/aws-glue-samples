@@ -1,0 +1,46 @@
+2020-07-19 19:51:09,037 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/m_VD6HCDgC9whvhZu58HbZqDm3ZKyGNvCnmtg6hDsNld0y5Jywa6ff-QxuP_yhyXfX1MhjkJ3ZZLjiMHB4x72JJxaXAbqQmK0pmju5LI4xXghS-kCJN0XvY5BvIjgh63LoBUWiAITbFe79kszX7nOjYU_A0d4s1-4ayisgVoIOOr6nlaaKQLgPABrINUhRsnjMcTvbrqcGQCQaO33TrUJdfgOxfjfEmy2bghbBkUAIgLrrxn4n5O4Q
+reason:Forbidden
+2020-07-19 19:51:21,436 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/uJR4XOyyxU9WscxMpp7I3ZWqv92hLv_0du69rYvD6qaeZjYtBMJJegWHVLyDi8LbXqUj0_V_2swGHNlRPXmz-nTwb0iLWD9XCISbfoGt9dG95QwwpVwREJv7I2ow53cuAyyoJ9Tz7gzhX89y7ImXJTGg2o-W
+reason:Forbidden
+2020-07-19 20:53:04,955 ERROR     Unexpeted error while downloading image https://www.rei.com/blog/wp-content/uploads/sites/4/2019/07/San_Fran_City_Guide_Map.jpg?fit=1500%2C971
+error type:<class 'ConnectionResetError'>, args:(104, 'Connection reset by peer')
+2020-07-19 20:53:14,059 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/NLx7orlvqsy_U6BOZXbEP9Wrgpqwcn5cxGxt9apMKKLKvRHMn7Fj32GHLhSpM2XvzXloj2mEYELSRHMr9SYPTasUCmlnbeZ1sNCeihpqkyYZwVU204pedRNW5vY889uhFGY_fwbSC_6LFLUbSP9AIkzvAzymmKZ9N-X_7mRDRe7RPxnmNTcNjFrpTktSbeU
+reason:Forbidden
+2020-07-19 20:53:16,293 ERROR     URLError while downloading image https://www.destinationcoupons.com/images/715x260-Ripleys-San-Francisco-jYVcbQgGJQVhy.jpg
+reason:[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:852)
+2020-07-19 20:53:16,468 ERROR     URLError while downloading image https://www.destinationcoupons.com/images/300x250-ripleys-san-francisco-1580589643.jpg
+reason:[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:852)
+2020-07-19 21:05:36,247 ERROR     Unexpeted error while downloading image https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton--R08618_PM2_Front%20view.jpg?wid=1200&hei=630
+error type:<class 'ConnectionResetError'>, args:(104, 'Connection reset by peer')
+2020-07-19 21:09:58,027 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/9D2PzAyxlDGzwpvcLkqz6Hb0pijc7thS8VIGvusm3Q-tExKJFHz8jU1yfnYZgW4ixD7SrQYsDbhUKF66q8SMCjAhZWYeLXa9OyQTtPAu9ctVxWP6DkEP
+reason:Forbidden
+2020-07-19 21:10:33,074 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/0k0HoJe0GzUP7L8UeWeSAHNhZKXcAJJ8_VK81b20yM-DttoV94KsL0YlsIukJ4KqGlJSqxz_gaNjmEuSIf7ywwxxwZNeFunRGgUrNrFBCx53uzNENLDwX_mYzS4rEkT81k_s3_Qdeg-9LNc1zvpkJM1T2NWRbWsxvWt09esD7aRocA
+reason:Forbidden
+2020-07-19 21:10:43,630 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/UASp-M4eMTarBVCKp-WvGi0wVUXuES7o-gbCW1Rn8P92zhLvUdgfQ-MpLyq8qD9XDVZop5vF4gA0D8E-eEirqrwsKPldIXRMvk3ElQZv2RQe4xeiRVuE4w
+reason:Forbidden
+2020-07-19 21:10:56,659 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/zSYeH_dQlAAvuxfhLYlRJc3jzInX_fw4rzaPUg381lST3I0qY1I9Xt4kJDXi8qVkakVX084PaQJGH99LhXRp0cWs0vNVZeliB_UTSSaOuKj2oK-dpm0XJHfa2gAMf17qS_rMkqZKseHPSdq_nTq2csfCtm8MBVdRW_KTbMbi7lCRpAJ9jHU
+reason:Forbidden
+2020-07-19 22:12:59,570 ERROR     Unexpeted error while downloading image https://www.nationalgeographic.com/content/dam/expeditions/destinations/north-america/private/Yosemite/Hero-Yosemite.adapt.1900.1.jpg
+error type:<class 'ConnectionResetError'>, args:(104, 'Connection reset by peer')
+2020-07-19 22:13:11,559 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/nOVR_jTJB2L1mkS531_xy2r51-xcUsfUqLZcEJ9CfawjMUxHoSgRaWTKFZgg0KQkEu5p5DaRLympv5DfnHPd69YCyo7bUio4MV5SpeTzOlT0EIldrjovX48XRw
+reason:Forbidden
+2020-07-19 22:14:25,691 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/3jvSlsfEmFziNxmVM-TDtPaXGH_OQvTqhY-62c_HyxBf-_tlS282dNMZbWRkzIxr1M_PvW2b87I3XeNuLW4U_9ENocm-4YtI6v6TllFpCefrZIK1_a6j_4pvS6Wjf9JMJz3bRCsHyiGBay9qqk2mdh3tUz2-Tk0IYr0
+reason:Forbidden
+2020-07-19 22:14:45,082 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/e0vKMW4cSa67EqLSsoHSWHj4t5-B3yGpl5aYCTArMqxXot7tlYUSZ0fTxbRBP-bsKzR9FXmlo7dKXgYFGlxUzHrGMP3QulYzmNl0egK7fhJFq_jgY2-0-sJKdr7utnrGCv27WUv3uEHeRXag-BUH9UE
+reason:Forbidden
+2020-07-19 22:19:25,515 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/U9LQ2Fi2XkGfa7EFre4bPH_jRqNSPYjBxGggmRF3e1lLtR9KVoCoCTeYTMwc6jWcvawPVReWmHrhmcuXa-EwdxxX7GLQLOVugxn8aXtSiM95g6QPNDrYLZF7Qx2Ch0wT9nvwoKW2hvQ
+reason:Forbidden
+2020-07-19 22:23:44,449 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/KfdEB944ky4IYYXcC4rxUQ_f8qRcJXFlDj4m6Wg6QgWGJ7cRWIdcPKOt8QHrNgM8pNkvyIzqVjqDwYzat9wz5HoOw3_BsYUZcsKgpYX5mZbeUvMHHMUPhnsdH6j6rS3G6eo
+reason:Forbidden
+2020-07-19 22:23:56,810 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/dsF3eOo58gzq-gEvYmC7bNAQhhnbjXEtMl9Bfq9hAszKAEryC8JgsBWVq-RKh64ydEP3xB3eJFYNWHxUN7eeQmv5y2UyURaWukMpEA0zU7L9pGJEKkzKbsH8nj-253nH0PSQ-6Xvw5xFBQSsr3o5KAmVxO6mFYmF4CxFJiY
+reason:Forbidden
+2020-07-19 22:24:28,635 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/M6ewoa-DljkPuNypzRznHTldayNZOWyMrC56zvR1Y6-30n1D3GVE_5_4Y_SHXpxsGppxpch1bG0wWaFnqjtZ0-QVAU_tXM4aLr5LSnyGf0eZZ1HvGBA_XLsCL1r1m0PqOnDjktHF
+reason:Forbidden
+2020-07-19 22:27:33,131 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/GFLNTDCmHkSpTigcwORkZJY2lTDeCEWBHDMbvz-WMKjAKEZHTg0Q8bEFWZdNhuk8k5sCotYSF-XHlCcAt6m_0CF7LtSi59e6hRgU2-Hp7XIFKfDwKJS1j8Bp4BLhlefxEkol5YIh
+reason:Forbidden
+2020-07-19 22:27:34,881 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/dqa2d1EvZ5K2wx-FF7pAJXfvAHM6gdyK9gYlFhHo9jC--XewoClyl-iCkzBMrHCpl-xmgH39lIU3m2vHIq5LkCSDPRZscnXaV5-1pWEKPnfD85Lt3Pjlg9hvU0bljADyX-b85Az3l2wxEPKwXRUz
+reason:Forbidden
+2020-07-19 22:27:35,894 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/nnS7WqMPTpUVYaUaMn9Yx98NfhEpO7TaHu6wkVg2Czym0ZdeeyglZh2lhL42E-xC1k79CsMkvU3yQOMLEUTOg_y-BfsAg-WqdygZkaujp6dd-caxcQ
+reason:Forbidden
+2020-07-19 22:28:04,731 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/_GDPoxboFxT3gLuf1vPtwGtEKfp9PTHZwrAXE4kXdjchTtdQSh0SwYfp6U8QXI-10nxH1ZzrwQrarR86tyNG8YZ6YQEnFZSH80c_Yai9Hdm-yOZBwEhh2dyHOaN-8AtqVRrvCte-TzyeO3UaVEle
+reason:Forbidden

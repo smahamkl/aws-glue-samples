@@ -16,17 +16,24 @@
 
 import os
 import json
+import sys
 import time
 import logging
 import urllib.request
 import urllib.error
+from pprint import pprint
 from urllib.parse import urlparse, quote
 
 from multiprocessing import Pool
 from user_agent import generate_user_agent
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import boto3
+from boto3.dynamodb.conditions import Key
+import uuid
 
+
+MAX_IMAGES_TO_DOWNLOAD = 5
 
 def get_image_links(main_keyword, supplemented_keywords, link_file_path, num_requested = 50):
     """get image links with selenium
@@ -69,7 +76,12 @@ def get_image_links(main_keyword, supplemented_keywords, link_file_path, num_req
         thumbs = driver.find_elements_by_xpath('//a[@class="wXeWr islib nfEiy mM5pbd"]')
 
         print(len(thumbs))
+        counter = 0
         for thumb in thumbs:
+
+            if counter > MAX_IMAGES_TO_DOWNLOAD:
+                break
+
             try:
                 thumb.click()
                 time.sleep(1)
@@ -86,6 +98,7 @@ def get_image_links(main_keyword, supplemented_keywords, link_file_path, num_req
                 if url.startswith('http') and not url.startswith('https://encrypted-tbn0.gstatic.com'):
                     img_urls.add(url)
                     print("Found image url: " + url)
+            counter += 1
 
         print('Process-{0} add keyword {1} , got {2} image urls so far'.format(main_keyword, supplemented_keywords[i], len(img_urls)))
     print('Process-{0} totally get {1} images'.format(main_keyword, len(img_urls)))
@@ -154,38 +167,89 @@ def download_images(link_file_path, download_dir, log_dir):
                 logging.error('Unexpeted error while downloading image {0}error type:{1}, args:{2}'.format(link, type(e), e.args))
                 continue
 
+def query_attractions(city, print_attractions, dynamodb=None):
+    if not dynamodb:
+        dynamodb = boto3.resource('dynamodb', endpoint_url="https://dynamodb.us-west-1.amazonaws.com")
+
+    table = dynamodb.Table('Attractions')
+    # response = table.query(
+    #     KeyConditionExpression=Key(city).eq('San Francisco')
+    # )
+    scan_kwargs = {
+        #'FilterExpression': Key('city').eq(city) and "attribute_exists(addrress1)",
+        'FilterExpression': Key('city').eq(city),
+        'ProjectionExpression': "city, attraction_name, category, attr_id"
+        #'ExpressionAttributeNames': {"#city": "city"}
+    }
+    done = False
+    start_key = None
+    while not done:
+        if start_key:
+            scan_kwargs['ExclusiveStartKey'] = start_key
+        response = table.scan(**scan_kwargs)
+        print_attractions(response.get('Items', []), table)
+        start_key = response.get('LastEvaluatedKey', None)
+        done = start_key is None
+
 
 if __name__ == "__main__":
-    main_keywords = ['neutral', 'angry', 'surprise', 'disgust', 'fear', 'happy', 'sad']
 
-    # supplemented_keywords = ['facial expression',\
-    #             'human face',\
-    #             'face',\
-    #             'old face',\
-    #             'young face',\
-    #             'adult face',\
-    #             'child face',\
-    #             'woman face',\
-    #             'man face',\
-    #             'male face',\
-    #             'female face',\
-    #             'gentleman face',\
-    #             'lady face',\
-    #             'boy face',\
-    #             'girl face',\
-    #             'American face',\
-    #             'Chinese face',\
-    #             'Korean face',\
-    #             'Japanese face',\
-    #             'actor face',\
-    #             'actress face'\
-    #             'doctor face',\
-    #             'movie face'
-    #             ]
+    download_dir = './data/'
+    link_files_dir = './data/link_files/'
+    log_dir = './logs/'
+    for d in [download_dir, link_files_dir, log_dir]:
+        if not os.path.exists(d):
+            os.makedirs(d)
 
-    supplemented_keywords = ['facial expression']
+    main_keywords = []
+
+    def print_attractions(attractions, table):
+        for attraction in attractions:
+
+            print(f"\n{attraction['city']} : {attraction['attraction_name']}  {attraction['category']} ")
+
+            # attr_id = str(uuid.uuid4())
+            #
+            # response = table.update_item(
+            #     Key={
+            #         'attraction_name': attraction['attraction_name'],
+            #         'city': attraction['city']
+            #     },
+            #     UpdateExpression="set attr_id=:r",
+            #     ExpressionAttributeValues={
+            #         ':r': attr_id
+            #     },
+            #     ReturnValues="UPDATED_NEW"
+            # )
 
 
+
+
+            #main_keywords = ['neutral', 'angry', 'surprise', 'disgust', 'fear', 'happy', 'sad']
+            main_keywords.append((attraction['attr_id'], attraction['attraction_name']))
+
+
+    query_attractions('San Francisco', print_attractions)
+
+    supplemented_keywords = ['San Francisco', 'Attractions']
+
+    print(main_keywords)
+
+    ###################################
+    # get image links and store in file
+    ###################################
+    # single process
+    # for keyword in main_keywords:
+    #     link_file_path = link_files_dir + keyword
+    #     get_image_links(keyword, supplemented_keywords, link_file_path)
+
+    # multiple processes
+    p = Pool(3)  # default number of process is the number of cores of your CPU, change it by yourself
+    for keyword in main_keywords:
+        p.apply_async(get_image_links, args=(keyword[1], supplemented_keywords, link_files_dir + keyword[0]))
+    p.close()
+    p.join()
+    print('Fininsh getting all image links')
 
     # test for chinese
     # main_keywords = ['高兴', '悲伤', '惊讶']
@@ -195,29 +259,7 @@ if __name__ == "__main__":
     # main_keywords = ['喜びます', 'きょうがいする', '悲しみ']
     # supplemented_keywords = ['顔つき']
 
-    download_dir = './data/'
-    link_files_dir = './data/link_files/'
-    log_dir = './logs/'
-    for d in [download_dir, link_files_dir, log_dir]:
-        if not os.path.exists(d):
-            os.makedirs(d)
 
-    ###################################
-    # get image links and store in file
-    ###################################
-    # single process
-    # for keyword in main_keywords:
-    #     link_file_path = link_files_dir + keyword
-    #     get_image_links(keyword, supplemented_keywords, link_file_path)
-    
-
-    # multiple processes
-    p = Pool(3) # default number of process is the number of cores of your CPU, change it by yourself
-    for keyword in main_keywords:
-        p.apply_async(get_image_links, args=(keyword, supplemented_keywords, link_files_dir + keyword))
-    p.close()
-    p.join()
-    print('Fininsh getting all image links')
     
     ###################################
     # download images with link file
@@ -230,7 +272,7 @@ if __name__ == "__main__":
     # multiple processes
     p = Pool() # default number of process is the number of cores of your CPU, change it by yourself
     for keyword in main_keywords:
-        p.apply_async(download_images, args=(link_files_dir + keyword, download_dir, log_dir))
+        p.apply_async(download_images, args=(link_files_dir + keyword[0], download_dir, log_dir))
     p.close()
     p.join()
     print('Finish downloading all images')

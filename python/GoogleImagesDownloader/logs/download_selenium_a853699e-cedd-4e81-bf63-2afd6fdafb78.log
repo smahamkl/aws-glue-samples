@@ -1,0 +1,66 @@
+2020-07-19 19:49:53,036 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/GKwqbUFzCWnpgJ_UHcUCCgX4xkMy4S70eHDp6XuE_N_kF5yiMeVWiZEN_ZoxTX7s-z7eH-Aqdv8UuCXrO4LU3ilM0Q5Vh9pSQepOLDuDWBV4jqwwFnAcOj4GTPCvug
+reason:Forbidden
+2020-07-19 19:49:54,049 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/hKFLgFNAm32NJxf3rgSvEDrCro1D8tCsDNjwdB0czV0_dmByPfMBXOlE55znYzF7UwFPqyuE04bo9Xk8xpRPfIseuOGhqqjdqTV2TBxzpRvo6FaP5LltyyP9PoXh
+reason:Forbidden
+2020-07-19 19:49:54,312 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/UZwqAVI8fM3dI5kSOwR9xKNzlnUTZj4U1poblJ3RSqDZw3NvjBSPP8shfz3CICK-bls-O-9OZ4DCu8ze3xhdi3m8FTv3kqX5t0WMPCPZU2GjR4MrQjjn_o4liXsVkQv6ZdyAqhPiWLbPYk5PXDuUMVU
+reason:Forbidden
+2020-07-19 19:49:55,528 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/cDMFmoYMUfCckHqCBVS5lAHgTgBKebZ_Db3wA9ATW0ZPbaFH9F_09BCpos0aYi03K9hwprj5LnOhRhScPu1BBim_DAy5TinCTmGRod4SPSAt4Os1JmhnEauSVg
+reason:Forbidden
+2020-07-19 19:49:55,666 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/U2Tl5UwNtDqpJEhesnJbFcYCjHv3H5pgnNLmI5B0hPGwkaF3bVLxHLKEs9BYXe6d9oYclojGjKVr0EvJcPA-1Ud3V6IU1qK-XhUMalBAx8ZdjY9jw4CITAMSTvTowo5RRo0
+reason:Forbidden
+2020-07-19 19:49:55,845 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/yX1IdC2bBeA5H5JATHIVG_843ajmf7ojqjQztrbwMgXSIvdFUlp_xI_U6c_aVy5bHyEBG-cpZ8VZ13FcJOPlWtPJkiUgRISpaODaCXO3nMgzlg0KoJ7A6nY5RZ4pR33lVN875co61pXOcLbQsfiLARw
+reason:Forbidden
+2020-07-19 20:52:01,628 ERROR     Unexpeted error while downloading image https://travel.usnews.com/dims4/USNEWS/3d05418/2147483647/resize/255x255%5E%3E/crop/255x255/quality/85/?url=https://travel.usnews.com/static-travel/images/destinations/20/8656895822_55e9bfb7ff_o.jpg
+error type:<class 'ConnectionResetError'>, args:(104, 'Connection reset by peer')
+2020-07-19 20:52:51,279 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/6vCDDl-CBZVMja3db1KqTR7St5i_DKwaA91myywj6-V4zEe4686rfY_4S1MqZV8qLd0mvwxuiWUEDIju2md8p5AMc3Ma2K1AnttKmjwKKFRzNpCZlMq_n2DRfkvsow
+reason:Forbidden
+2020-07-19 20:53:20,641 ERROR     URLError while downloading image https://farm3.staticflickr.com/2655/4145760739_9f809821fb_b.jpg
+reason:Gateway Time-out
+2020-07-19 20:53:27,028 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/VLxbg5DSx48mHTaaQh4qXOJ8nPS141-S4DMqoZ8ZzBAmu_TDZnqXIiRfselNmTEMn43pET-zU6mCYOREgbCcGaFERVbnZMkOP9dZyGs
+reason:Forbidden
+2020-07-19 20:54:40,938 ERROR     URLError while downloading image https://www.destinationcoupons.com/images/715x260-advanced-hills-gZpCG7UBRrwLq.jpg
+reason:[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:852)
+2020-07-19 20:56:46,021 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/bvVa07W64JXTtpji5NeRuIA07PCSubEiB51YQQ2LUMGt9sHVNvE4C7Hbh5Mg3p8vKkRUM0f9VoBsLdWsO2oP0ON23BY6J2GK
+reason:Forbidden
+2020-07-19 20:56:59,406 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/SwMQQRw3e4Xbm0MSHMCqwkkid_a1ubWmW56izhd207-IxEMfeG9ykfz_6Mk5FtN6N3i53-2zz9t7-HLLVc-edtvbGRfQOJasK7r23xP25gbOODw7hBFdTMGyNQ
+reason:Forbidden
+2020-07-19 20:59:49,555 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/LnAOrilnoKO7wfgo6QEU_1oVZPpZcA7aD4vXbu1Xc26izbhq7pAGCsl105EeTttoaQiy1cZQ2rhrgr4aUcW50DeQrLE7Y5-vWpVgDOM-RBIUWcIUgfqDbSJuGFoweYCwAmjvm0puLt13CmE4dyfvHJN7d_YzEXVdIVP8RpA_rBkg-LAxsPFrbs_W-tNwpwHHM5k-ycId7SfBhJn_O8grMvvzTQA
+reason:Forbidden
+2020-07-19 20:59:51,870 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/HZOw889FA1nHbxAvoZAkj6KEyQktYM19vuzmDluUn0JN9ZeBsZasTGhOtQQl6Sxi00rb0aAK_G4W0MhF3W5TqTzMB1UZ5ZJHgR5t3NmrvLrkAfLowBbVMY4Ke_ssCtSy1L4ptbvAXPCUfqMXQWgbVB6xEKTHuA8zBHGMGpDILPjXFvQtmfhLQIpoFV19Fj9UbXRx4qbdIAMzASKJwcx-HExS8eU
+reason:Forbidden
+2020-07-19 21:14:18,537 ERROR     Unexpeted error while downloading image https://www.sacbee.com/entertainment/living/travel/dq6oou/picture22534623/alternates/LANDSCAPE_1140/MC_COLE_VALLEY_15
+error type:<class 'ConnectionResetError'>, args:(104, 'Connection reset by peer')
+2020-07-19 21:15:13,161 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/P5qZohynj3dzYBYTRdhaj0EHIb8FZWtn_nc1c_0-hFzu8_BsB6m_JrouIW-UJHmSayH2VapQvkatB6FjMZ7HjYh_2TZ9qsFNvbK8vuneqLu57ablNyd14ZA1TUqumSVeajTLJuuqT_WnA0P87JgaN1gGUEc
+reason:Forbidden
+2020-07-19 21:19:10,027 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/gMg-cPTLsDukbVjkH6BImFLUKqvHc1ZHwaU38RxrZd4HZPQdJ78VoBa6vV8ibBuJaUTHVf-Z8aHpT_wfRP-STUCi05X5IJuUj8LCqFUN_riNR39DmtK7uC5TSPeDpyO_lw
+reason:Forbidden
+2020-07-19 21:24:35,139 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/YSIU61dxVeCYM0DKoKHerpKZA3LPqIEeDFWGgUGCmgt8D0YRxXvCB-laEpQwGgOKcLpVo8L99Q78OSrQnzhKoWltr0UM379O6m9-LR8Y
+reason:Forbidden
+2020-07-19 21:25:12,859 ERROR     URLError while downloading image https://i1.wp.com/blog.savesfbay.org/wp-content/uploads/2016/09/IMG_8171_BayDay_Newsletter2.png?resize=600%2C300
+reason:Forbidden
+2020-07-19 21:25:43,938 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/vgAbm3C7spzYXyCBMdrrB-uHEZmXaSzePPEElYoUqtaTV1Hhik5qWesQcfWfGFcYZYzBxNMvEfTd8hYuPEcsaZ_0s_U4WhlUyqCuZ2J9qaBHAKuFblY
+reason:Forbidden
+2020-07-19 21:25:44,081 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/v6-xcVMz7lv_EOF7LWl8iQdufv5ZOaNtggjW1kR2GD1OK7nCmG-5Plwy-oY7cykmBIbJg6o-xF6AFHtqVXdjZnyK0kJq7GGEnzBzklhSKDffRg
+reason:Forbidden
+2020-07-19 21:25:46,356 ERROR     URLError while downloading image https://sfbeerweek.org/upload/a8c355a370bc6f45_ph/2018_12_boardroom0438.jpg
+reason:[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:852)
+2020-07-19 21:26:31,390 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/58CFOnTrp8Ur9xQIlZ83MhrhiIsBtW8bEkx_ZY44R6uzfsfjri_nYFaxkOsu3j1m7g4HKtybN_NEqKdgrLazx7M8Uv0cPyPkDS9XtnX_UTz87OrbMBsPB5uYlJC6orJ5swobAehUspXnI8CRMO7f1IUAOYvnD-xpLg
+reason:Forbidden
+2020-07-19 21:26:31,778 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/woeizvMgryuNUxb0T8X_xre8Rbskih1A-BfqfCdiEqARA5-5IgBwd_BiqkQPNAL6JEUxUVauDDfhLln6vzH8DmrghVR1DrugPx03bLWjfgjOg7czvJAqKuJV-d-0KCi0OS9BAF2yompKeg
+reason:Forbidden
+2020-07-19 21:26:32,902 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/tWqWCJzEVZQfg9BrO9vb8lPDM3P8Zh2ziEMq5tV6l7RhQmID4U__ph2Gtw_J7r3QJzFCHDfETKJp6XI_o-A7FC9YA-GxP2_w5ytRjOcNTbLuwFvLMl0Xm408Ih90besiEMqQQaAF3dMX9MX1K67J
+reason:Forbidden
+2020-07-19 21:28:41,531 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/iPtKDuo0T1aDu7cxadB7PjdlPbJhm-6WgeaiXiUOYO5gMEzbDhmvz_RMyNC5FO2EkeIa5bT8rdZO_XF34hlIoYFN11gWV9XkiIUwkCJ2RqQLSLz7gfr6ElTe-a3XnBR9TgiROGQzFVBjtDTu1kResmNrOl744jyZ909BOWUQUnbT5e3-o75ElJBuNIIXaV3w5lldqQrV6X2zbjaQywQSNt2qovjWYSTR7-Qn
+reason:Forbidden
+2020-07-19 21:28:41,671 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/UKI_HCfAwHk0cHD6DunGzmaPdmAtZx8jTXv3EAyTNAs5M7Mr0VmoEZ5eXj-Kvnz4I7ytwyxNtGVT_dICKT10kypdhpBHcxq6cQ8QIrnlE-fdngT5zNox63KBPQojfF63tNqvFSYzKl0OtI1gPgsqyj4e7jKPgEQ3S650hzAJKAUtRDGe5OyoJyCr8h3SHU9YHk6v_gFBnIZDUPo4p4aZT86vwcR2mam7XPnlrCCK
+reason:Forbidden
+2020-07-19 21:28:41,801 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/z_TnamvWL70ReGSkEyOf3kSBzUknH3B2TBjnKS2S7X9_j1fC_DLdogQerdqGyF_I3v2oVo_iMYcSAHmWLUK8UDmI5XppUnymTFAvd3gkzSgkPATnWYv7umqVsKEWGiNsqiICsdZj8EmEak4t_GcPYb_BQ0FmayqOqKG6uneHRCqLKn7AGDuPHb1AX027vcTV6xi7EUAGrkFV6jvlG_-XG-AmDr0juI88jPc2HR6u
+reason:Forbidden
+2020-07-19 21:30:01,212 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/BW7_eEJR2z2ChqvuMpzKIFLsQ2zzeC2X0ZY8aQrnpRugLuG9ooQJ4dULeelwf4ty5JggshNNykb27-b5GPJ7uS1Mtzi9icD44uJrOgA4SZWJX_JG2iWmDaJkyequ16VqpJwto_ZIt80vgd__gA9g9uf2
+reason:Forbidden
+2020-07-19 21:33:56,661 ERROR     URLError while downloading image https://thumbs.worthpoint.com/zoom/images2/1/0616/13/1952-thomas-bros-san-francisco-street_1_1bcb7d1d0733a92fa3f4b790870e0e1c.jpg
+reason:Forbidden
+2020-07-19 21:33:56,789 ERROR     URLError while downloading image https://lh3.googleusercontent.com/proxy/VymANGEqYyKkgLWCsm32kuWSYKG0ZKquUKmvaIZoyzL0JQfRG52hI2Q5V3P2geGAGhEnDeVyinnGr8KXvpdU8-mKs5CmbnlmLrO87YCjOGJ-fu05bog20-S3N3PoOOz5Ou3_ltK6EmejAjGQY79aOxHUKJPPoYsTjpsKX-RKESws_n14AcPPKarYKjvZN7e5XZ8Lb9VDl-XdWmLSYlMLz_AOlTl17nxDwBRjTI1wDMoe6htNfOw0_Kc2C88mP222V5fINfrqZDPmHK7juqYCcug-xQITDPu2wHQAw_1_6bSX9gyubeU1uhwb
+reason:Forbidden
+2020-07-19 22:35:48,829 ERROR     Unexpeted error while downloading image https://travel.usnews.com/dims4/USNEWS/f00b5cc/2147483647/resize/1280x350%5E%3E/crop/1280x350/quality/85/?url=https://travel.usnews.com/static-travel/images/destinations/108/hero_Rome_108_1280x350.jpg
+error type:<class 'ConnectionResetError'>, args:(104, 'Connection reset by peer')
